@@ -8,6 +8,8 @@ Web3Weave is the first AI-powered, no-code builder that lets traders, market ana
 
 Just describe what you want in plain English → Web3Weave generates, validates, and deploys battle-tested Sway smart contracts leveraging Fuel’s parallel transaction execution, native assets, and spending conditions.
 
+### Live App
+https://web3weaves.netlify.app
 
 ### Core Features (MVP – will soon be Live on Fuel Sepolia)
 - Natural language → audited Sway contract (RSI bot, MACD crossover, grid trader, volume tracker, etc.)
