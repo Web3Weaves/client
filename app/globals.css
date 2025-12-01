@@ -3,19 +3,63 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Brand Palette (Light Default) */
+  --fuel-50: #FFF5E6;
+  --fuel-100: #FFE0B2;
+  --fuel-200: #FFBC66;
+  --fuel-300: #FF9833;
+  --fuel-400: #FF851A;
+  --fuel-500: #FF6A00; /* Primary */
+  --fuel-600: #E55A00; /* Hover/Pressed */
+  --fuel-700: #CC4F00;
+  --fuel-800: #B33F00;
+  --fuel-900: #993300;
+  --color-void-black: #0D1117;
+  --color-surface: #161B22;
+  --color-graphite: #1E2329;
+  --color-steel: #9CA3AF;
+  --color-success: #00D4AA;
+  --color-warning: #FFB020;
+  --color-danger: #FF3344;
+  --color-text-primary: #F5F8FA;
+  --color-text-secondary: #94A3B8;
+  --gradient-fuel: linear-gradient(135deg, #FF6A00 0%, #E55A00 100%);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* Map palette tokens to Tailwind color system */
+  --color-fuel-50: var(--fuel-50);
+  --color-fuel-100: var(--fuel-100);
+  --color-fuel-200: var(--fuel-200);
+  --color-fuel-300: var(--fuel-300);
+  --color-fuel-400: var(--fuel-400);
+  --color-fuel-500: var(--fuel-500);
+  --color-fuel-600: var(--fuel-600);
+  --color-fuel-700: var(--fuel-700);
+  --color-fuel-800: var(--fuel-800);
+  --color-fuel-900: var(--fuel-900);
+  --color-void: var(--color-void-black);
+  --color-surface: var(--color-surface);
+  --color-graphite: var(--color-graphite);
+  --color-steel: var(--color-steel);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --gradient-fuel: var(--gradient-fuel);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-void-black);
+    --foreground: var(--color-text-primary);
+    /* Dark mode adjustments (keep brand vivid) */
+    --color-text-secondary: #94A3B8;
   }
 }
 
@@ -23,4 +67,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Utility classes specific to marketing page */
+.fuel-gradient-text {
+  background: var(--gradient-fuel);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.glow-border {
+  position: relative;
+}
+.glow-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(circle at 30% 30%, var(--fuel-500) 0%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+section {
+  scroll-margin-top: 96px;
 }
